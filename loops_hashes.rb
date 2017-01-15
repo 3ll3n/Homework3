@@ -3,22 +3,29 @@
 stops = [ 'Buchanan Street', 'Cowcaddens', 'St Georges Cross', 'Kelvinbridge', 'Hillhead', 'Kelvinhall', 'Partick', 'Govan', 'Pollock', 'Ibrox', 'Cessnock', 'Kinning Park', 'Shields Road' ]
 
 # 1. Add 'St Enoch' to the start of the array
-stops.unshift('St Enoch')
+ stops.unshift('St Enoch')
+ puts stops
 # 2. Add 'West Street' to the end of the array
- stops.push('West Street')
+ puts stops.push('West Street')
 # 3. Delete 'Pollock' from the array
- stops.delete('Pollock')
+ puts stops.delete('Pollock')
 # 4. Work out how many stops there are on the subway
- stops.length
+ puts stops.length()
 # 5. Return the second item from the array (Buchanan Street)
- stops[1] 
+ puts stops[1] 
 # 6. Return the last item (Shields Road) from the array
- stops[-1]
+ puts stops[-1]
+ # puts stops.last
+
+ # puts stops.(13)
+ # puts stops.[13]
 # 7. Work out the index position of 'Hillhead'
- stops.index("Hillhead")
+ puts stops.index("Hillhead")
+# could also do a for loop
+
 # 8. Reverse the positions of the stops in the array
-  stops.reverse
-9. Print out all of the stops using a for loop
+  puts stops.reverse()
+# 9. Print out all of the stops using a for loop
 for stop in stops
   puts stop
 end
@@ -35,6 +42,8 @@ puts my_hero[:name]
 puts my_hero[:race]
 #3. Get the hero's first weapon
 puts my_hero[:weapons][0]
+# my_hero[:weapons].first
+
 #4. Get the hero's second weapon
 puts my_hero[:weapons][1]
 #5. Get the number of weapons the hero has
@@ -59,14 +68,27 @@ end
 2. Find the weight of a Blue Whale.
   
   for animal in big_animals
-    if animal[:name] == "Blue Whale"
+    if ( animal[:name] == "Blue Whale" )
       puts animal[:weight]
     end
   end
 
+
+  # big_animals[2][:weight]
+
 3. Create an array of the big animals that are carnivores.
+
+    carnivores = []
+    for animal in big_animals
+      if animal[:carnivore] == true
+        carnivores.push( animal )
+      end
+    end
+
+    print "CARNIVORES"
+    print carnivores
   
-  carnivores = big_animals.select{|animal| animal[:carnivore]}
+  # carnivores = big_animals.select{|animal| animal[:carnivore]}
 
 
 ## Extra. Given the following data structure:
@@ -104,19 +126,36 @@ users = {
 }
 
 # 1. Return Jonathan's Twitter handle (i.e. the string `"jonnyt"`)
+puts users["Jonathan"][:twitter]
 
 # 2. Return Erik's hometown
+puts users["Erik"][:home_town]
 
 # 3. Return the array of Erik's favorite numbers
+puts users["Erik"][:favourite_numbers]
 
 # 4. Return the type of Avril's pet Colin
+puts users["Avril"][:pets]["colin"]
 
 # 5. Return the smallest of Erik's favorite numbers
+puts users["Erik"][:favourite_numbers].min
 
 # 6. Add the number `7` to Erik's favorite numbers
+puts users["Erik"][:favourite_numbers] << 7
 
 # 7. Change Erik's hometown to Edinburgh
+puts users["Erik"][:home_town] = "Edinburgh"
 
 # 8. Add a pet dog to Erik called "Fluffy"
+puts users["Erik"][:pets]["Fluffy"] = :dog
 
 # 9. Add yourself to the users hash
+
+puts users["me"] = {
+  :twitter => "moi",
+  :favourite_numbers => [12, 11, 10, 9],
+  :home_town => "Stirling",
+  :pets => {
+    "george" => :fish
+  }
+}
